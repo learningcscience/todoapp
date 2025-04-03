@@ -1,6 +1,6 @@
 
 class Task:
-    def __init__(self, title, description, due_date, completed):
+    def __init__(self, title, description="", due_date=None, completed=False):
         self.title = title
         self.description = description
         self.due_date = due_date

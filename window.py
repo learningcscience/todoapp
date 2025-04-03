@@ -17,12 +17,15 @@ class MainWindow(tk.Tk):
         #init model, view and controller
 
         self.task_manager = TaskManager()
-        self.task_view = TaskView(self)
-        self.task_controller = TaskController(self.task_manager, self.task_view)
-
-
-        self.task_view.controller = self.task_controller
-
-
-
         
+        self.task_controller = TaskController(self.task_manager)
+
+        self.task_view = TaskView(self, self.task_controller)
+        
+
+
+        self.task_controller.view = self.task_view
+
+
+
+

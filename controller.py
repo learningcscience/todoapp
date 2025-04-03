@@ -4,15 +4,16 @@ from task import Task
 
 
 class TaskController:
-    def __init__(self, model, view):
+    def __init__(self, model, view=None):
         self.model = model
         self.view = view
         self.refresh_view()
 
 
     def refresh_view(self):
-        tasks = self.model.get_tasks()
-        self.view.update_task_list(tasks)
+        if self.view is not None:
+            tasks = self.model.get_tasks()
+            self.view.update_task_list(tasks)
 
 
 
@@ -57,7 +58,7 @@ class TaskController:
             self.refresh_view()
         else:
             messagebox.showwarning("No Selection", "Please select a task to toggle.")
-            
-                
+
+
 
 
